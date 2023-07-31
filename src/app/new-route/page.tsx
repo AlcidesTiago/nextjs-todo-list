@@ -37,8 +37,11 @@ export default function Page() {
           {/* Cancel button */}
           <Link
             href=".."
-            className="border border-indigo-500/100 text-slate-200 px-2 py-1 rounded hover:bg-indigo-500
-          focus-within:bg-slate-700 outline-none bg-indigo-700"
+            className="border border-indigo-500/100
+            text-slate-200 px-2 py-1 rounded
+            hover:bg-indigo-500
+            focus-within:bg-slate-700 outline-none
+            bg-indigo-700"
           >
             Cancel
           </Link>

@@ -31,7 +31,7 @@ export default async function Home() {
         <Link
           className="border border-blue-500/100 text-slate-200 px-2 py-1 rounded 
           hover:bg-blue-500
-          focus-within:bg-slate-700 outline-none bg-blue-500"
+          focus-within:bg-slate-700 outline-none bg-blue-700"
           href="./new-route"
         >
           New
