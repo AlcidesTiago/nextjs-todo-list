@@ -4,9 +4,20 @@ import Link from "next/link";
 import { todo } from "node:test";
 import React from "react";
 
+
+
 //Function for create item
 function getTodos() {
   return prisma.todo.findMany();
+}
+
+// function for toggleTodo
+async function toggleTodo(id: string, complete: boolean) {
+  "use server";
+
+  await prisma.todo.update({
+    where: { id }, data: { complete }
+  })
 }
 
 export default async function Home() {
@@ -18,8 +29,9 @@ export default async function Home() {
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2x1">Todos/Tasks</h1>
         <Link
-          className="border border-slate-300 text-slate-700 px-2 rounded hover:bg-slate-700
-          focus-within:bg-slate-700 outline-none"
+          className="border border-blue-500/100 text-slate-200 px-2 py-1 rounded 
+          hover:bg-blue-500
+          focus-within:bg-slate-700 outline-none bg-blue-500"
           href="./new-route"
         >
           New
@@ -27,7 +39,7 @@ export default async function Home() {
       </header>
       <ul className="pl-4">
         {todos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} />
+          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
         ))}
       </ul>
     </>
